@@ -1,0 +1,154 @@
+{% extends 'web/partials/base2.html' %}
+{% load static %}
+{% block content %}     
+        <!-- start header -->
+     <!-- start page title section -->
+        <section class="wow animate__fadeIn bg-light-gray padding-35px-tb page-title-small top-space">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-md-6 text-md-start text-center">
+                        <!-- start page title -->
+                        <h1 class="alt-font text-extra-dark-gray font-weight-600 mb-0 text-uppercase">Contact us classic</h1>
+                        <!-- end page title -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 breadcrumb text-small alt-font justify-content-center justify-content-md-end sm-margin-15px-top">
+                        <!-- breadcrumb -->
+                        <ul>
+                            <li><a href="#" class="text-dark-gray">Pages</a></li>
+                            <li><a href="#" class="text-dark-gray">Contact</a></li>
+                            <li class="text-dark-gray">Contact us classic</li>
+                        </ul>
+                        <!-- end breadcrumb -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end page title section -->
+        <!-- start help section -->
+        <section class="wow animate__fadeIn big-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <span class="alt-font text-small text-uppercase">We would love to work with you</span>
+                        <h2 class="alt-font font-weight-700 letter-spacing-minus-1 text-extra-dark-gray">How we can help</h2>
+                        <p class="w-75 mx-auto sm-w-100">we're excited to bring your vision to life. Whether you need innovative design, cutting-edge technology, or a strategic digital solution, our team is here to help.</p>
+                        <a href="#start-your-project" class="btn btn-large btn-transparent-dark-gray margin-10px-top inner-link">Start your Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end help section -->
+        <!-- start contact section -->
+        <section class="no-padding bg-extra-dark-gray">
+            <div class="container-fluid">
+                <div class="row row-cols-1 row-cols-lg-2">
+                    <div class="col p-0 cover-background md-h-450px sm-h-350px wow animate__fadeInLeft" style="background: url('{% static 'web/assets/images/contact-img2.jpg' %} ')"></div>
+                    <div class="col p-0 wow animate__fadeInRight">
+                        <div class="row row-cols-1 row-cols-sm-2 m-0">
+                            <!-- start contact item -->
+                            <div class="col bg-extra-dark-gray d-flex flex-column justify-content-center align-items-center text-center h-350px lg-h-300px sm-h-250px last-paragraph-no-margin">
+                                <i class="icon-map text-deep-pink icon-medium margin-25px-bottom"></i>
+                                <div class="text-white-2 text-uppercase alt-font font-weight-600 margin-5px-bottom">Contact Address</div>
+                                <p class="w-60 lg-w-80 mx-auto text-medium">NIRMAN HERITAGE HUB, Calicut Road 28th Mile, 
+                                    Patterkulam, Narukara Post,
+                                    Pincode 676 121, Manjeri, 
+                                    Malappuram District, Kerala, India</p>
+                            </div>
+                            <!-- end contact item -->
+                            <!-- start contact item -->
+                            <div class="col bg-black d-flex flex-column justify-content-center align-items-center text-center h-350px lg-h-300px sm-h-250px last-paragraph-no-margin">
+                                <i class="icon-chat text-deep-pink icon-medium margin-25px-bottom"></i>
+                                <div class="text-white-2 text-uppercase alt-font font-weight-600 margin-5px-bottom">Let's Talk</div>
+                                <p class="mx-auto text-medium mb-0">Phone:+91 9072999345</p>
+                                {% comment %} <p class="mx-auto text-medium">Fax: 1-800-222-002</p> {% endcomment %}
+                            </div>
+                            <!-- end contact item -->
+                            <!-- start contact item -->
+                            <div class="col bg-black d-flex flex-column justify-content-center align-items-center text-center h-350px lg-h-300px sm-h-250px last-paragraph-no-margin">
+                                <i class="icon-envelope text-deep-pink icon-medium margin-25px-bottom"></i>
+                                <div class="text-white-2 text-uppercase alt-font font-weight-600 margin-5px-bottom">Email Us</div>
+                                <p class="mx-auto text-medium mb-0"><a href="mailto:info@worldmarkrefine.com">info@worldmarkrefine.com</a></p>
+                                {% comment %} <p class="mx-auto text-medium"><a href="mailto:hire@domain.com">hire@domain.com</a></p> {% endcomment %}
+                            </div>
+                            <!-- end contact item -->
+                            <!-- start contact item -->
+                            <div class="col bg-extra-dark-gray d-flex flex-column justify-content-center align-items-center text-center h-350px lg-h-300px sm-h-250px last-paragraph-no-margin">
+                                <i class="icon-clock text-deep-pink icon-medium margin-25px-bottom"></i>
+                                <div class="text-white-2 text-uppercase alt-font font-weight-600 margin-5px-bottom">Working Hours</div>
+                                <p class="mx-auto text-medium mb-0">Mon to Sat - 9 AM to 5 PM</p>
+                                <p class="mx-auto text-medium">Sunday - Holiday</p>
+                            </div>
+                            <!-- end contact item -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end contact section -->        
+        <!-- start form section -->
+        <section class="wow animate__fadeIn" id="start-your-project">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-7 col-md-9 col-sm-10 margin-eight-bottom md-margin-40px-bottom sm-margin-30px-bottom text-center last-paragraph-no-margin">
+                        <h5 class="alt-font font-weight-700 text-extra-dark-gray text-uppercase">tell us about your project</h5>
+                        <p>We’re eager to hear about your ideas and goals. Share the details of your project with us, and let’s explore how we can turn your vision into reality. Fill out the form below, or reach out directly to start the conversation.</p>
+                    </div>  
+                </div>
+                <form id="project-contact-form" action="" method="post">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-results d-none"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="name" id="name" placeholder="Name *" class="big-input required">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="tel" name="phone" id="phone" placeholder="Phone"  class="big-input">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" name="email" id="email" placeholder="E-mail *" class="big-input required">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="select-style big-select">
+                                <select name="budget" id="budget" class="bg-transparent mb-0">
+                                    <option value="">Select your budget</option>
+                                    <option value="$500 - $1000">$500 - $1000</option>
+                                    <option value="$1000 - $2000">$1000 - $2000</option>
+                                    <option value="$2000 - $5000">$2000 - $5000</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="comment" id="comment" placeholder="Describe your project" rows="6" class="big-textarea"></textarea>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button id="project-contact-us-button" type="submit" class="btn btn-transparent-dark-gray btn-large margin-20px-top submit">send message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- end form section -->
+        <section class="wow animate__fadeIn bg-light-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center social-style-4">
+                        <span class="text-medium font-weight-600 text-uppercase d-block alt-font text-extra-dark-gray margin-30px-bottom">On social networks</span>
+                        <div class="social-icon-style-4">
+                            <ul class="margin-30px-top large-icon">
+                                <li><a class="facebook" href="http://facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i><span></span></a></li>
+                                <li><a class="twitter" href="http://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i><span></span></a></li>
+                                <li><a class="google" href="http://google.com/" target="_blank"><i class="fa-brands fa-google-plus-g"></i><span></span></a></li>
+                                {% comment %} <li><a class="dribbble" href="http://dribbble.com/" target="_blank"><i class="fa-brands fa-dribbble"></i><span></span></a></li> {% endcomment %}
+                                <li><a class="linkedin" href="http://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i><span></span></a></li>
+                                <li><a class="instagram" href="http://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i><span></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- start footer --> 
+       
+        <!-- end footer -->
+     {% endblock %}
