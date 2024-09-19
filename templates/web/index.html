@@ -7,7 +7,7 @@
             <!-- start logo -->
             <div class="col-12 sidenav-header">
                 <div class="logo-holder">
-                    <a href="index.html" class="d-inline-block logo"><img alt="Pofo" src="{% static 'web/assets/images/wmr_logo.svg'%}" data-at2x="{% static 'web/assets/images/wmr_logo.svg' %}" /></a>
+                    <a href="{% url 'web:index' %}" class="d-inline-block logo"><img alt="Pofo" src="{% static 'web/assets/images/logo.png'%}" data-at2x="{% static 'web/assets/images/wmr_logo.svg' %}" /></a>
                 </div>
                 <!-- end logo -->
                 <button class="navbar-toggler mobile-toggle" type="button" id="mobileToggleSidenav">
@@ -56,14 +56,7 @@
             </div>
             <div class="col-12 position-absolute top-auto bottom-0 left-0 w-100 padding-20px-bottom sm-padding-15px-bottom">
                 <div class="footer-holder">
-                    <form action="https://www.themezaa.com/html/pofo/search-result.html" method="post" class="navbar-form no-padding search-box">
-                        <div class="input-group add-on">
-                            <input name="text" id="text" data-email="required" type="text" placeholder="Enter your keywords..." class="form-control">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                        </div>
-                    </form>
+                    
                     <div class="icon-social-medium margin-eleven-bottom padding-eight-top sm-padding-15px-top sm-margin-15px-bottom">
                         <a href="https://www.facebook.com/" target="_blank" class="text-link-extra-dark-gray"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
                         <a href="https://twitter.com/" target="_blank" class="text-link-extra-dark-gray"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
@@ -118,70 +111,53 @@
                         <div class="col-12 filter-content overflow-hidden">
                             <ul class="hover-option5 portfolio-wrapper grid grid-loading grid-3col xl-grid-3col lg-grid-3col md-grid-3col sm-grid-1col xs-grid-1col gutter-medium">
                                 <li class="grid-sizer"></li>
-                                <!-- start portfolio item -->
-                                {% for item in items %}
-                                    <li class="grid-item {% if forloop.counter0|divisibleby:2 %} grid-item-double {% endif %} wow animate__zoomIn last-paragraph-no-margin" data-wow-delay="{{ forloop.counter0|add:0.2 }}s">
-                                        <a href="{{ item.link|default:'#' }}">
-                                            <figure>
-                                                <div class="portfolio-img">
-                                                    <img src="{% url 'web:portfolio' %}" alt="{{ item.title }}"/>
-                                                </div>
-                                                <figcaption>
-                                                    <div class="portfolio-hover-main text-center">
-                                                        <div class="portfolio-hover-box align-middle">
-                                                            <div class="portfolio-hover-content position-relative">
-                                                                <div class="bg-deep-pink mx-auto separator-line-horrizontal-medium-light2 position-relative"></div>
-                                                                <span class="font-weight-600 line-height-normal alt-font text-white-2 text-uppercase margin-5px-bottom d-block">
-                                                                    {{ item.title }}
-                                                                </span>
-                                                                <p class="text-medium-gray letter-spacing-1 text-uppercase text-extra-small">
-                                                                    {{ item.description }}
-                                                                </p>
+                                <!-- Start portfolio item -->
+                                    {% for item in items %}
+                                        <li class="grid-item {% if forloop.counter0|divisibleby:2 %} grid-item-double {% endif %} wow animate__zoomIn last-paragraph-no-margin" data-wow-delay="{{ forloop.counter0|add:0.2 }}s">
+                                            <a href="{{ item.link|default:'#' }}">
+                                                <figure>
+                                                    <div class="portfolio-img">
+                                                        <img src="{{ item.image.url }}" alt="{{ item.title }}"/>
+                                                    </div>
+                                                    <figcaption>
+                                                        <div class="portfolio-hover-main text-center">
+                                                            <div class="portfolio-hover-box align-middle">
+                                                                <div class="portfolio-hover-content position-relative">
+                                                                    <div class="bg-deep-pink mx-auto separator-line-horrizontal-medium-light2 position-relative"></div>
+                                                                    <span class="font-weight-600 line-height-normal alt-font text-white-2 text-uppercase margin-5px-bottom d-block">
+                                                                        {{ item.title }}
+                                                                    </span>
+                                                                    <p class="text-medium-gray letter-spacing-1 text-uppercase text-extra-small">
+                                                                        {{ item.description }}
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                                <!-- end portfolio item -->
+                                                    </figcaption>
+                                                </figure>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                               
+                                <!-- End portfolio item -->
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            
             <!-- end portfolio section -->
             <div class="clearfix"></div>
             <!-- start clients logo section -->
             <section class="wow animate__fadeIn">
                 <div class="container">
                     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 align-items-center">
+                        
+                        {% for client in clients %}  <!-- Change Clients to clients -->
                         <div class="col margin-three-bottom text-center wow animate__fadeInRight">
-                            <a href="https://envato.com/"><img src="{% static 'web/assets/images/logo-1.png'%}" alt=""></a>
+                            <a href="{{ client.url }}"><img src="{{ client.image.url }}" alt=""></a>
                         </div>
-                        <div class="col margin-three-bottom text-center wow animate__fadeInRight" data-wow-delay="0.2s">
-                            <a href="https://woocommerce.com/"><img src="{% static 'web/assets/images/logo-2.png'%}" alt=""></a>
-                        </div>
-                        <div class="col margin-three-bottom text-center wow animate__fadeInRight" data-wow-delay="0.4s">
-                            <a href="https://wordpress.com/"><img src="{% static 'web/assets/images/logo-3.png'%}" alt=""></a>
-                        </div>
-                        <div class="col margin-three-bottom text-center wow animate__fadeInRight" data-wow-delay="0.6s">
-                            <a href="https://magento.com/"><img src="{% static 'web/assets/images/logo-4.png'%}" alt=""></a>
-                        </div>
-                        <div class="col md-margin-three-bottom text-center wow animate__fadeInRight" data-wow-delay="0.8s">
-                            <a href="https://sass-lang.com/"><img src="{% static 'web/assets/images/logo-5.png'%}" alt=""></a>
-                        </div>
-                        <div class="col md-margin-three-bottom text-center wow animate__fadeInRight" data-wow-delay="1s">
-                            <a href="https://www.pingdom.com/"><img src="{% static 'web/assets/images/logo-6.png'%}" alt=""></a>
-                        </div>
-                        <div class="col xs-margin-three-bottom text-center wow animate__fadeInRight" data-wow-delay="1.2s">
-                            <a href="https://lesscss.org/"><img src="{% static 'web/assets/images/logo-7.png'%}" alt=""></a>
-                        </div>
-                        <div class="col text-center wow animate__fadeInRight" data-wow-delay="1.4s">
-                            <a href="https://jquery.com/"><img src="{% static 'web/assets/images/logo-8.png'%}" alt=""></a>
-                        </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
             </section>
@@ -194,101 +170,32 @@
                 <div class="container">
                     <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2 justify-content-center">
                         <!-- start team item -->
+                        {% for member in team_list %}
                         <div class="col team-block text-start team-style-1 sm-margin-30px-bottom md-margin-50px-bottom wow animate__fadeInUp">
                             <figure>
                                 <div class="team-image sm-w-100">
-                                    <img src="{% static 'web/assets/images/team13.jpg'%}" alt="">
+                                    <img src="{{ member.image.url }}" alt="">
                                     <div class="overlay-content text-center d-flex align-items-center justify-content-center">
                                         <div class="icon-social-small">
-                                            <a href="http://facebook.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-facebook-f"></i></a>
-                                            <a href="http://twitter.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-twitter"></i></a>
-                                            <a href="http://plus.google.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-google-plus-g"></i></a>
-                                            <a href="http://instagram.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-instagram"></i></a>
+                                            <a href="{{ member.instagram_url }}" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-facebook-f"></i></a>
+                                            <a href="{{ member.facebook_url }}" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-twitter"></i></a>
+                                            <a href="{{ member.twitter_url }}" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-instagram"></i></a>
                                         </div>
                                     </div>
                                     <div class="team-overlay bg-deep-pink opacity8"></div>
                                 </div>
                                 <figcaption>
                                     <div class="team-member-position margin-20px-top text-center">
-                                        <div class="text-small font-weight-500 text-extra-dark-gray text-uppercase">Hugh Macleod</div>
-                                        <div class="text-extra-small text-uppercase text-medium-gray">Creative Director</div>
+                                        <div class="text-small font-weight-500 text-extra-dark-gray text-uppercase">{{ member.name }}</div>
+                                        <div class="text-extra-small text-uppercase text-medium-gray">{{ member.position }}</div>
                                     </div>   
                                 </figcaption>
                             </figure>
                         </div>
+                        {% endfor %}
                         <!-- end team item -->
                         <!-- start team item -->
-                        <div class="col team-block text-start team-style-1 sm-margin-30px-bottom md-margin-50px-bottom wow animate__fadeInUp" data-wow-delay="0.2s">
-                            <figure>
-                                <div class="team-image sm-w-100">
-                                    <img src="{% static 'web/assets/images/team18.jpg'%}" alt="">
-                                    <div class="overlay-content text-center d-flex align-items-center justify-content-center">
-                                        <div class="icon-social-small">
-                                            <a href="http://facebook.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-facebook-f"></i></a>
-                                            <a href="http://twitter.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-twitter"></i></a>
-                                            <a href="http://plus.google.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-google-plus-g"></i></a>
-                                            <a href="http://instagram.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-instagram"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="team-overlay bg-deep-pink opacity8"></div>
-                                </div>
-                                <figcaption>
-                                    <div class="team-member-position margin-20px-top text-center">
-                                        <div class="text-small font-weight-500 text-extra-dark-gray text-uppercase">Jeremy Dupont</div>
-                                        <div class="text-extra-small text-uppercase text-medium-gray">Creative Director</div>
-                                    </div>   
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <!-- end team item -->
-                        <!-- start team item -->
-                        <div class="col team-block text-start team-style-1 xs-margin-30px-bottom wow animate__fadeInUp" data-wow-delay="0.4s">
-                            <figure>
-                                <div class="team-image sm-w-100">
-                                    <img src="{% static 'web/assets/images/team15.jpg'%}" alt="">
-                                    <div class="overlay-content text-center d-flex align-items-center justify-content-center">
-                                        <div class="icon-social-small">
-                                            <a href="http://facebook.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-facebook-f"></i></a>
-                                            <a href="http://twitter.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-twitter"></i></a>
-                                            <a href="http://plus.google.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-google-plus-g"></i></a>
-                                            <a href="http://instagram.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-instagram"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="team-overlay bg-deep-pink opacity8"></div>
-                                </div>
-                                <figcaption>
-                                    <div class="team-member-position margin-20px-top text-center">
-                                        <div class="text-small font-weight-500 text-extra-dark-gray text-uppercase">Sara Smith</div>
-                                        <div class="text-extra-small text-uppercase text-medium-gray">Creative Studio Head</div>
-                                    </div>   
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <!-- end team item -->
-                        <!-- start team item -->
-                        <div class="col team-block text-start team-style-1 wow animate__fadeInUp" data-wow-delay="0.4s">
-                            <figure>
-                                <div class="team-image sm-w-100">
-                                    <img src="{% static 'web/assets/images/team16.jpg'%}" alt="">
-                                    <div class="overlay-content text-center d-flex align-items-center justify-content-center">
-                                        <div class="icon-social-small">
-                                            <a href="http://facebook.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-facebook-f"></i></a>
-                                            <a href="http://twitter.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-twitter"></i></a>
-                                            <a href="http://plus.google.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-google-plus-g"></i></a>
-                                            <a href="http://instagram.com/" target="_blank" class="text-white-2 text-white-2-hover"><i class="fa-brands fa-instagram"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="team-overlay bg-deep-pink opacity8"></div>
-                                </div>
-                                <figcaption>
-                                    <div class="team-member-position margin-20px-top text-center">
-                                        <div class="text-small font-weight-500 text-extra-dark-gray text-uppercase">Bill Gardner</div>
-                                        <div class="text-extra-small text-uppercase text-medium-gray">Co-Founder / Design</div>
-                                    </div>   
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <!-- end team item -->                    
+
                     </div> 
                 </div>
             </section>

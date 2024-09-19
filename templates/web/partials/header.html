@@ -7,7 +7,7 @@
         <div class="container-fluid nav-header-container">
             <!-- start logo -->
             <div class="col-auto ps-0">
-                <a href="index.html" title="Pofo" class="logo"><img src="{% static 'web/assets/images/logo.png' %}" data-at2x="{% static 'web/assets/images/logo@2x.png' %}" class="logo-dark default" alt="Pofo"><img src="{% static 'web/assets/images/logo-white.png' %}" data-at2x="images/logo-white@2x.png" alt="Pofo" class="logo-light"></a>
+                <a href="index.html" title="Pofo" class="logo"><img src="{% static 'web/assets/images/logo.png' %}" data-at2x= "{% static 'web/assets/images/logo.png' %}" % class="logo-dark default" alt="Pofo"><img src="{% static 'web/assets/images/logo-white.png' %}" data-at2x="images/logo-white@2x.png" alt="Pofo" class="logo-light"></a>
             </div>
             <!-- end logo -->
             <div class="col accordion-menu pe-0 pe-md-3">
@@ -60,12 +60,7 @@
                 <div class="header-searchbar">
                     <a href="#search-header" class="header-search-form"><i class="fa-solid fa-magnifying-glass search-button"></i></a>
                     <!-- search input-->
-                    <form id="search-header" method="post" action="" name="search-header" class="mfp-hide search-form-result">
-                        <div class="search-form position-relative">
-                            <button type="submit" class="fa-solid fa-magnifying-glass close-search search-button"></button>
-                            <input type="text" name="search" class="search-input" placeholder="Enter your keywords..." autocomplete="off">
-                        </div>
-                    </form>
+                   
                 </div>
                 <div class="header-social-icon d-none d-md-inline-block">
                     <a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>

@@ -2,22 +2,41 @@ from django.shortcuts import render, get_object_or_404
 from .forms import ContactForm
 from django.http import JsonResponse
 from django.views.generic import ListView, TemplateView
-from .models import PortfolioItem, Portfolio, Category
+from .models import PortfolioItem, Portfolio, Category,Team,Client
 
 
 # Index page view to list portfolio items
 class IndexView(ListView):
     model = PortfolioItem
-    template_name = "web/index.html"
-    context_object_name = 'items'
-
+    template_name = 'web/index.html'
+    
     def get_queryset(self):
-        return PortfolioItem.objects.filter(is_active=True).order_by('-created_at')
+        # Return the ordered queryset for PortfolioItem
+        return PortfolioItem.objects.order_by('-created_at')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['team_list'] = Team.objects.all()
+        context['clients'] = Client.objects.all() 
+        context['items'] = PortfolioItem.objects.all() 
+        return context
+    
 
 
 # About page view
 class AboutView(TemplateView):
     template_name = "web/about.html"
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['clients'] = Client.objects.all()  # Change 'clints' to 'clients'
+        return context
+    
+
+
+def portfolioitem_list(request):
+    return render(request, 'web/portfolioitem_list.html')
 
 
 # Contact page view
@@ -36,17 +55,12 @@ class PortfolioView(ListView):
     template_name = "web/portfolio.html"
     context_object_name = 'portfolios'
 
-    def get_queryset(self):
-        category = self.request.GET.get('category', None)
-        if category:
-            category_obj = get_object_or_404(Category, name=category)
-            return Portfolio.objects.filter(category=category_obj)
-        return Portfolio.objects.all()
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+        context['portfolios'] = Portfolio.objects.all() 
         return context
+    
 
 
 # Contact form handling function
@@ -76,3 +90,7 @@ def contact(request):
             "form": form,
         }
         return render(request, "web/contact.html", context)
+
+
+class BlogView(TemplateView):
+    template_name = 'web/blog.html'

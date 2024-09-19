@@ -193,45 +193,12 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 align-items-center">
                     <!-- start client logo item -->
-                    <div class="col margin-three-bottom text-center wow animate__fadeInDown">
-                        <a href="http://www.envato.com/"><img src="{% static 'web/assets/images/logo-1.png'%}" alt=""></a>
+                    {% for client in clients %}  <!-- Change Clients to clients -->
+                    <div class="col margin-three-bottom text-center wow animate__fadeInRight">
+                        <a href="{{ client.url }}"><img src="{{ client.image.url }}" alt=""></a>
                     </div>
-                    <!-- end client logo item -->
-                    <!-- start client logo item -->
-                    <div class="col margin-three-bottom text-center wow animate__fadeInDown" data-wow-delay="0.2s">
-                        <a href="http://www.woocommerce.com/"><img src="{% static 'web/assets/images/logo-2.png'%}" alt=""></a>
-                    </div>
-                    <!-- end client logo item -->
-                    <!-- start client logo item -->
-                    <div class="col margin-three-bottom text-center wow animate__fadeInDown" data-wow-delay="0.4s">
-                        <a href="http://www.wordpress.com/"><img src="{% static 'web/assets/images/logo-3.png'%}" alt=""></a>
-                    </div>
-                    <!-- end client logo item -->
-                    <!-- start client logo item -->
-                    <div class="col margin-three-bottom text-center wow animate__fadeInDown" data-wow-delay="0.6s">
-                        <a href="http://www.magento.com/"><img src="{% static 'web/assets/images/logo-4.png'%}" alt=""></a>
-                    </div>
-                    <!-- end client logo item -->
-                    <!-- start client logo item -->
-                    <div class="col md-margin-three-bottom text-center wow animate__fadeInDown">
-                        <a href="http://www.sass-lang.com/"><img src="{% static 'web/assets/images/logo-5.png'%}" alt=""></a>
-                    </div>
-                    <!-- end client logo item -->
-                    <!-- start client logo item -->
-                    <div class="col md-margin-three-bottom text-center wow animate__fadeInDown" data-wow-delay="0.2s">
-                        <a href="http://www.pingdom.com/"><img src="{% static 'web/assets/images/logo-6.png'%}" alt=""></a>
-                    </div>
-                    <!-- end client logo item -->
-                    <!-- start client logo item -->
-                    <div class="col xs-margin-three-bottom text-center wow animate__fadeInDown" data-wow-delay="0.4s">
-                        <a href="http://lesscss.org/"><img src="{% static 'web/assets/images/logo-7.png'%}" alt=""></a>
-                    </div>
-                    <!-- end client logo item -->
-                    <!-- start client logo item -->
-                    <div class="col text-center wow animate__fadeInDown" data-wow-delay="0.6s">
-                        <a href="http://www.jquery.com/"><img src="{% static 'web/assets/images/logo-8.png'%}" alt=""></a>
-                    </div>
-                    <!-- end client logo item -->
+                    {% endfor %}
+            
                 </div>
             </div>
         </section>

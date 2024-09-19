@@ -29,7 +29,7 @@
                         <ul class="portfolio-filter nav nav-tabs justify-content-center border-0 portfolio-filter-tab-1 font-weight-600 alt-font text-uppercase text-center margin-80px-bottom text-small md-margin-40px-bottom sm-margin-20px-bottom">
                             <li class="nav"><a href="?category=" class="light-gray-text-link text-very-small">All</a></li>
                             {% for category in categories %}
-                                <li class="nav"><a href="?category={{ category.name }}" class="light-gray-text-link text-very-small">{{ category.name }}</a></li>
+                                <li class="nav item-{{category.id}}"><a href="?category={{ category.name }}" class="light-gray-text-link text-very-small">{{ category.name }}</a></li>
                             {% endfor %}
                         </ul>
                         <!-- end filter navigation -->
@@ -44,8 +44,8 @@
                             <li class="grid-sizer"></li>
                             {% for portfolio in portfolios %}
                                 <!-- start portfolio item -->
-                                <li class="grid-item {{ portfolio.category.name|lower }} wow animate__fadeInUp">
-                                    <a href="single-project-page-{{ forloop.counter }}.html">
+                                <li class="grid-item  wow animate__fadeInUp item-{{ portfolio.category.id }}">
+                                    <a href="single-project-page-.html">
                                         <figure>
                                             <div class="portfolio-img"><img src="{{ portfolio.image.url }}" alt=""/></div>
                                             <figcaption>
