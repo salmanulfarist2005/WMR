@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
+from tinymce.models import HTMLField
+from django.urls import reverse
 
 # Create your models here.
 
@@ -11,18 +14,22 @@ class PortfolioItem(models.Model):
     title = models.CharField(max_length=255)
 
 
-    def __str__(self):
+    def _str_(self):
         return self.title
-    
+
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    slug = models.SlugField(unique=True,blank=True,null=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
 
-    def get_Portfolio(self):
-        return Portfolio.objects.filter(category=self)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
-    def __str__(self):
+    def _str_(self):
         return self.name
+
 
 class Portfolio(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -30,33 +37,35 @@ class Portfolio(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='portfolio/')
     date = models.DateField()
+    description = HTMLField()
 
-    def __str__(self):
+    def _str_(self):
         return self.title
-    
-    def get_images(self):
-        return PortfolioImage.objects.filter(Portfolio=self)
 
-    
+
+    # Assuming PortfolioImage has a ForeignKey to Portfolio with field name portfolio
+    def get_images(self):
+        return PortfolioImage.objects.filter(portfolio=self)
+
+
 class PortfolioImage(models.Model):
     Portfolio = models.ForeignKey(Portfolio,on_delete=models.CASCADE)
     image = models.ImageField()
 
-    def __str__(self):
+    def _str_(self):
         return self.image
     
 
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone = models.CharField(max_length=15)
-    subject = models.CharField(max_length=250)
-    message = models.TextField()  # Changed to TextField for longer messages
+    mobil = models.CharField(max_length=15)
+    service = models.CharField(max_length=250)
+    message = models.TextField()  # This is fine for longer messages
 
     def __str__(self):
         return self.name
     
-
 
 class Team(models.Model):
     name = models.CharField(max_length=200)
@@ -67,10 +76,28 @@ class Team(models.Model):
     twitter_url = models.CharField(max_length=200)
 
 
-    def __str__(self):
+    def _str_(self):
         return self.name
     
 
 class Client(models.Model):
     image = models.ImageField(upload_to='client')
     url = models.CharField(max_length=200)
+
+
+
+
+class Blog(models.Model):
+    name = models.CharField(max_length=200)
+    date = models.DateField()
+    image = models.ImageField(upload_to='blog/')
+    title = models.CharField(max_length=250)
+    detail_image = models.ImageField(upload_to='blog/')
+    description = HTMLField()
+    slug = models.SlugField(max_length=250,blank=True,null=True)
+
+    def get_absolute_url(self):
+        return reverse("web:blog-detail", kwargs={"slug": self.slug})
+
+    def __str__(self):
+        return self.title

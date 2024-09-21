@@ -1,0 +1,107 @@
+<!doctype html>
+{% extends 'web/partials/base2.html' %}
+{% load static %}
+{% block content %}     
+         
+        
+        <!-- end header -->
+        <!-- start page title section -->
+        <section class="wow animate__fadeIn bg-light-gray padding-35px-tb page-title-small top-space">
+            <div class="container position-relative">
+                <div class="row align-items-center">
+                    <div class="col-xl-8 col-md-6 d-flex flex-column justify-content-center text-center text-md-start">
+                        <!-- start page title -->
+                        <h1 class="alt-font text-extra-dark-gray font-weight-600 mb-0 text-uppercase">This is the secret of success</h1>
+                        <!-- end page title -->
+                    </div>
+                    <div class="col-xl-4 col-md-6 alt-font breadcrumb justify-content-center justify-content-md-end text-small sm-margin-10px-top">
+                        <!-- breadcrumb -->
+                        <ul class="text-center text-md-start text-uppercase">
+                            <li><a href="#" class="text-dark-gray">{{blog.date}}</a></li>
+                            <li><span class="text-dark-gray">by <a href="blog-masonry.html">{{blog.name}}</a></span></li>
+                            {% comment %} <li class="text-dark-gray"><a href="blog-masonry.html">Design</a></li> {% endcomment %}
+                        </ul>
+                        <!-- end breadcrumb -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end page title section -->
+        <!-- start section -->
+        <section class="wow animate__fadeIn">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 last-paragraph-no-margin">
+                        <img src="{{ blog.detail_image.url }}" alt="" class="w-100 margin-50px-bottom md-margin-30px-bottom">
+                        <h5 class="alt-font font-weight-600 text-extra-dark-gray">{{blog.title}}</h5>
+                        <p class="text-large line-height-30 text-medium-gray sm-line-height-26">{{blog.description|safe}}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end section -->
+        <!-- start parallax section -->
+        
+        <!-- end parallax section -->
+        
+        <!-- start parallax section -->
+        
+        <!-- end parallax section -->
+        <!-- start section -->
+        
+        <!-- end section -->
+        <!-- start blog post section -->
+   
+        <!-- end blog post section -->
+        <!-- start related post section -->
+        <section class="wow animate__fadeIn bg-light-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto text-center margin-65px-bottom sm-margin-40px-bottom">
+                        <div class="position-relative overflow-hidden w-100">
+                            <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase text-extra-dark-gray">Related Posts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 blog-content">
+                        <ul class="blog-classic blog-wrapper grid grid-loading grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
+                            <li class="grid-sizer"></li>
+                            <!-- start post item -->
+                            {% for other_blog in other_blogs %}
+                            <li class="grid-item last-paragraph-no-margin wow animate__fadeInUp">
+                                <div class="blog-post blog-post-style1 text-center text-sm-start">
+                                    <div class="blog-post-images overflow-hidden margin-25px-bottom md-margin-20px-bottom">
+                                        <a href="{{other_blog.get_absolute_url}}">
+                                            <img src="{{other_blog.image.url}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="post-details margin-20px-bottom xs-no-margin-bottom">
+                                        <span class="post-author text-extra-small text-medium-gray text-uppercase d-block margin-10px-bottom sm-margin-5px-bottom">{{ other_blog.date }}| by <a href="blog-masonry.html" class="text-medium-gray">{{ other_blog.name }}</a></span>
+                                        <a href="blog-post-layout-01.html" class="post-title text-medium text-extra-dark-gray w-90 d-block md-w-100">{{other_blog.title}}</a>
+                                        <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb md-margin-15px-tb"></div>
+                                        <p class="w-90 sm-w-100">.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            <!-- end post item -->
+                            <!-- start post item -->
+
+                            <!-- end post item -->
+                            <!-- start post item -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end related post section -->
+        <!-- start comments section -->
+      
+        <!-- end comments section -->
+        <!-- start comment form section -->
+     
+        <!-- end comment form section -->
+        <!-- start footer --> 
+       {% endblock %}
+       

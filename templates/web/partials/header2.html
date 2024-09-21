@@ -20,32 +20,32 @@
                     <ul id="accordion" class="nav navbar-nav no-margin alt-font text-normal" data-in="animate__fadeIn" data-out="animate__fadeOut">
                         <!-- start menu item -->
                         <li class="dropdown megamenu-fw">
-                            <a href="#">Home</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <a href="{% url 'web:index' %}">Home</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
                             <!-- start sub menu -->
                             
                         </li>
                         <!-- end menu item -->
-                        <li class="dropdown simple-dropdown"><a href="#">ABOUT</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                        <li class="dropdown simple-dropdown"><a href="{% url 'web:about' %}">ABOUT</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
                             <!-- start sub menu -->
                             
                         </li>
                         <li class="dropdown megamenu-fw">
-                            <a href="#">Portfolio</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <a href="{% url 'web:portfolio' %}">Portfolio</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
                             <!-- start sub menu -->
                            
                         </li>
-                        <li class="dropdown simple-dropdown"><a href="#" title="Blog">BLOG</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                        <li class="dropdown simple-dropdown"><a href="{% url 'web:blog' %}" title="Blog">BLOG</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
                             <!-- start sub menu -->
                            
                             <!-- end sub menu -->
                         </li>
                         <li class="dropdown megamenu-fw">
-                            <a href="#">GALLERY</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <a href="{% url 'web:index' %}">GALLERY</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
                             <!-- start sub menu -->
                           
                         </li>
                         <li class="dropdown megamenu-fw">
-                            <a href="#">CONTACT</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <a href="{% url 'web:contact' %}">CONTACT</a><i class="fa-solid fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
                             <!-- start sub menu -->
                           
                         </li>

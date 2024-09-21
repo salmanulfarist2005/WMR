@@ -1601,7 +1601,7 @@ textarea.input-bg {
 
 .opacity-full-dark {
     position: absolute;
-    height: 100%;
+    height: 60% !important;
     width: 100%;
     opacity: 0.9;
     top: 0;

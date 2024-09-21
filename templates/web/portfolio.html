@@ -26,10 +26,13 @@
                 <div class="row">
                     <div class="col-12">
                         <!-- start filter navigation -->
-                        <ul class="portfolio-filter nav nav-tabs justify-content-center border-0 portfolio-filter-tab-1 font-weight-600 alt-font text-uppercase text-center margin-80px-bottom text-small md-margin-40px-bottom sm-margin-20px-bottom">
-                            <li class="nav"><a href="?category=" class="light-gray-text-link text-very-small">All</a></li>
+                        <ul
+                            class="portfolio-filter nav nav-tabs justify-content-center border-0 portfolio-filter-tab-1 font-weight-600 alt-font text-uppercase text-center margin-80px-bottom text-small md-margin-40px-bottom sm-margin-20px-bottom">
+                            <li class="nav active"><a href="javascript:void(0);" data-filter="*"
+                                    class="light-gray-text-link text-very-small">All</a></li>
                             {% for category in categories %}
-                                <li class="nav item-{{category.id}}"><a href="?category={{ category.name }}" class="light-gray-text-link text-very-small">{{ category.name }}</a></li>
+                            <li class="nav"><a href="javascript:void(0);" data-filter=".item-{{category.id}}"
+                                    class="light-gray-text-link text-very-small">{{ category.name }}</a></li>
                             {% endfor %}
                         </ul>
                         <!-- end filter navigation -->
@@ -40,36 +43,43 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 filter-content overflow-hidden">
-                        <ul class="hover-option7 portfolio-wrapper grid grid-loading grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-medium">
+                        <ul
+                            class="hover-option7 portfolio-wrapper grid grid-loading grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-medium">
                             <li class="grid-sizer"></li>
+                            <!-- start portfolio item -->
                             {% for portfolio in portfolios %}
-                                <!-- start portfolio item -->
-                                <li class="grid-item  wow animate__fadeInUp item-{{ portfolio.category.id }}">
-                                    <a href="single-project-page-.html">
-                                        <figure>
-                                            <div class="portfolio-img"><img src="{{ portfolio.image.url }}" alt=""/></div>
-                                            <figcaption>
-                                                <div class="portfolio-hover-main text-center last-paragraph-no-margin">
-                                                    <div class="portfolio-hover-box align-middle">
-                                                        <div class="portfolio-hover-content position-relative">
-                                                            <span class="font-weight-600 alt-font text-uppercase margin-one-bottom d-block text-extra-dark-gray">{{ portfolio.title }}</span>
-                                                            <p class="text-medium-gray text-uppercase text-extra-small">{{ portfolio.category.name }}</p>
-                                                        </div>
+                            <li class="grid-item item-{{ portfolio.category.id }} wow animate__fadeInUp">
+                                <a href="">
+                                    <figure>
+                                        <div class="portfolio-img">
+                                            <img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}" />
+                                        </div>
+                                        <figcaption>
+                                            <div class="portfolio-hover-main text-center last-paragraph-no-margin">
+                                                <div class="portfolio-hover-box align-middle">
+                                                    <div class="portfolio-hover-content position-relative">
+                                                        <span class="font-weight-600 alt-font text-uppercase margin-one-bottom d-block text-extra-dark-gray">
+                                                            {{ portfolio.title }}
+                                                        </span>
+                                                        <p class="text-medium-gray text-uppercase text-extra-small">
+                                                            {{ portfolio.category.name }}
+                                                        </p>
                                                     </div>
                                                 </div>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </li>
-                                <!-- end portfolio item -->
-                            {% empty %}
-                                <li>No portfolio items found.</li>
-                            {% endfor %}
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <!-- end portfolio item -->
+                        {% empty %}
+                            <li>No portfolio items found.</li>
+                        {% endfor %}
                         </ul>
                     </div>
                 </div>
             </div>
-            <!-- end filter content -->
+            <!-- end filter content -->
         </section>
         
         
@@ -89,116 +99,5 @@
         </section>
         <!-- end call to action section -->
         <!-- start footer --> 
-        <footer class="footer-classic-dark bg-extra-dark-gray padding-five-bottom sm-padding-30px-bottom">
-            <div class="bg-dark-footer padding-50px-tb sm-padding-30px-tb">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- start slogan -->
-                        <div class="col-lg-4 col-md-5 text-center alt-font sm-margin-15px-bottom">
-                            London based highly creative studio
-                        </div>
-                        <!-- end slogan -->
-                        <!-- start logo -->
-                        <div class="col-lg-4 col-md-2 text-center sm-margin-10px-bottom">
-                            <a href="index.html"><img class="footer-logo" src="{% static 'web/assets/images/logo-white.png' %}" data-at2x="{% static 'web/assets/images/logo-white@2x.png' %}" alt="Pofo"></a>
-                        </div>
-                        <!-- end logo -->
-                        <!-- start social media -->
-                        <div class="col-lg-4 col-md-5 text-center">
-                            <span class="alt-font margin-20px-right md-margin-15px-right">On social networks</span>
-                            <div class="social-icon-style-8 d-inline-block align-middle">
-                                <ul class="small-icon mb-0">
-                                    <li><a class="facebook text-white-2" href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
-                                    <li><a class="twitter text-white-2" href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-                                    <li><a class="google text-white-2" href="https://plus.google.com/" target="_blank"><i class="fa-brands fa-google-plus-g"></i></a></li>
-                                    <li><a class="instagram text-white-2" href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram no-margin-right" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- end social media -->
-                    </div>
-                </div>
-            </div>
-            <div class="footer-widget-area padding-five-top padding-30px-bottom sm-padding-30px-top">
-                <div class="container">
-                    <div class="row row-cols-1 row-cols-lg-4 row-cols-sm-2">
-                        <!-- start about -->
-                        <div class="col widget md-margin-30px-bottom text-center text-sm-start last-paragraph-no-margin">
-                            <div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-15px-bottom font-weight-600">About Agency</div>
-                            <p class="text-small w-95 sm-w-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum is simply dummy text of the and typesetting industry. </p>
-                        </div>
-                        <!-- end about -->
-                        <!-- start blog post -->
-                        <div class="col widget md-margin-30px-bottom">
-                            <div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-15px-bottom font-weight-600 text-center text-sm-start">Latest Blog Post</div>
-                            <ul class="latest-post position-relative">
-                                <li class="media d-flex border-bottom border-color-medium-dark-gray">
-                                    <figure class="flex-shrink-0">
-                                        <a href="blog-post-layout-01.html"><img src="{% static 'web/assets/images/latest-blog2.jpg' %}" alt=""></a>
-                                    </figure>
-                                    <div class="media-body flex-grow-1 text-small"><a href="blog-post-layout-01.html" class="d-block mb-1">Design is not just what looks...</a> <span class="clearfix"></span>20 April 2017 | by <a href="blog-grid.html">Herman Miller</a></div>
-                                </li>
-                                <li class="media d-flex border-bottom border-color-medium-dark-gray">
-                                    <figure class="flex-shrink-0">
-                                        <a href="blog-post-layout-02.html"><img src="{% static 'web/assets/images/latest-blog3.jpg' %}" alt=""></a>
-                                    </figure>
-                                    <div class="media-body flex-grow-1 text-small"><a href="blog-post-layout-02.html" class="d-block mb-1">A lot of care, effort & passion...</a> <span class="clearfix"></span>20 April 2017 | by <a href="blog-grid.html">Herman Miller</a></div>
-                                </li>
-                                <li class="media d-flex">
-                                    <figure class="flex-shrink-0">
-                                        <a href="blog-post-layout-03.html"><img src="{% static 'web/assets/images/latest-blog4.jpg' %}" alt=""></a>
-                                    </figure>
-                                    <div class="media-body flex-grow-1 text-small"><a href="blog-post-layout-03.html" class="d-block mb-1">I love making the stuff, that's...</a> <span class="clearfix"></span>20 April 2017 | by <a href="blog-grid.html">Herman Miller</a></div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- end blog post -->
-                        <!-- start newsletter -->
-                        <div class="col widget xs-margin-30px-bottom text-center text-sm-start">
-                            <div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-15px-bottom font-weight-600">Subscribe Newsletter</div>
-                            <p class="text-small w-90 sm-w-100">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            <form action="https://www.themezaa.com/html/pofo/email-templates/subscribe-newsletter.php" method="post">
-                                <div class="position-relative newsletter w-95">
-                                    <div class="col-12 mx-0">
-                                        <div class="form-results d-none"></div>
-                                    </div>
-                                    <div class="position-relative w-100 h-100">
-                                        <input type="email" id="email" name="email" class="bg-transparent text-small m-0 border-color-medium-dark-gray required" placeholder="Enter your email...">
-                                        <button id="button-subscribe-newsletter" type="submit" class="btn btn-arrow-small position-absolute border-color-medium-dark-gray submit"><i class="fa-solid fa-caret-right no-margin-left"></i></button>
-                                    </div> 
-                                </div>
-                            </form>
-                        </div>
-                        <!-- end newsletter -->
-                        <!-- start instagram -->
-                        <div class="col widget text-center text-sm-start">
-                            <div class="widget-title alt-font text-small text-medium-gray text-uppercase margin-15px-bottom font-weight-600">Follow us Instagram</div>
-                            <div class="w-100 d-inline-block">
-                                <ul class="instafeed-grid instafeed-wrapper grid grid-3col xl-grid-3col lg-grid-3col md-grid-3col sm-grid-3col xs-grid-3col gutter-small" data-total="6">
-                                    <li class="grid-item">
-                                        <figure>
-                                            <a href="#" data-href="{{link}}" target="_blank">
-                                                <img src="{% static 'web/assets/#" data-src="{% static 'web/assets/image.html" class="insta-image" alt="" />
-                                                <span class="insta-counts"><i class="ti-instagram"></i>{{likes}}</span>
-                                            </a>
-                                        </figure>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- end instagram -->
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="footer-bottom border-top border-color-medium-dark-gray padding-30px-top">
-                    <div class="row row-cols-1 row-cols-md-2">
-                        <!-- start copyright -->
-                        <div class="col text-small text-md-start text-center">POFO - Portfolio Concept Theme</div>
-                        <div class="col text-small text-md-end text-center">&copy; 2024 POFO is Proudly Powered by <a href="http://www.themezaa.com/" target="_blank" title="ThemeZaa">ThemeZaa</a></div>
-                        <!-- end copyright -->
-                    </div>
-                </div>
-            </div>
-        </footer>
+       
         {% endblock %}
